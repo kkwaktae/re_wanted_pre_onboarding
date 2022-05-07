@@ -1,12 +1,12 @@
-import styles from './Routes.module.scss'
-import TodoList from './TodoList'
+import styles from './Routes.module.scss';
+import Main from '../pages/Main';
 
 function App() {
   return (
     <div className={styles.app}>
-      <TodoList />
+      <Main />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

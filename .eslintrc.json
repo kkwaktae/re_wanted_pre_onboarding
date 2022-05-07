@@ -1,5 +1,5 @@
 {
-  "extends": ["airbnb", "airbnb/hooks", "react-app", "prettier"],
+  "extends": ["airbnb", "airbnb/hooks", "react-app", "prettier", "eslint:recommended", "plugin:react/recommended"],
   "env": {
     "browser": true,
     "jasmine": true,
@@ -19,10 +19,12 @@
   },
   "rules": {
     "arrow-body-style": "off",
-    "semi": ["warn", "never"],
+    "arrow-parens": ["off", "as-needed"],
+    "comma-dangle": 0,
+    "semi": ["off", "always"],
     "react/jsx-one-expression-per-line": "off",
-    "react/jsx-filename-extension": [
-      "error",
+    "react/jsx-filename-extension":[
+      1,
       { "extensions": [".js", ".jsx"] }
     ],
     "react/jsx-indent": "warn",
@@ -32,6 +34,7 @@
     "react/jsx-wrap-multilines": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
     "import/prefer-default-export": "off",
     "import/no-unresolved": "off",
     "import/order": "off",
@@ -42,23 +45,24 @@
         "devDependencies": [".storybook/**", "src/stories/**"]
       }
     ],
-    // "max-lines": ["warn", 150],
+    // "max-lines": ["warn", 80],
     "no-param-reassign": ["error", { "props": false }],
-    "no-use-before-define": "off",
+    "no-use-before-define": 1, // 정의 전에 사용 금지
     "@typescript-eslint/no-use-before-define": ["error"],
-
-    "no-shadow": "off",
+    "no-shadow": ["off"],
     "no-unused-expressions": ["warn"],
+    "no-unused-vars": ["off"], // 사용하지 않는 변수가 있을때 빌드에러가 나던 규칙 해제
+    "no-console": ["off"], // 콘솔을 쓰면 에러가 나던 규칙 해제
+    "no-extra-semi": "off", // 세미콜론 안썼을 때의 에러 규칙 해제
+    "react/jsx-props-no-spreading": ["warn"], // props로 받은 것 바로 props로 넘기기 허용
     "@typescript-eslint/no-shadow": ["error"],
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/unbound-method": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-unsafe-member-access": "off",
     "@typescript-eslint/no-unsafe-assignment": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
-      { "argsIgnorePattern": "^_" }
-    ],
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "@typescript-eslint/explicit-module-boundary-types": 0, // function에 return 타입을 명시해야하는 rule 해제
     "prefer-const": ["warn"],
     "prefer-destructuring": ["error", { "object": true, "array": false }],
     "lines-between-class-members": "off",
@@ -71,6 +75,7 @@
         "controlComponents": ["input"]
       }
     ],
+    "import/prefer-default-export": ["off"], // export const 문을 쓸때 에러를 내는 rule 해제
     "import/extensions": [
       "error",
       "ignorePackages",

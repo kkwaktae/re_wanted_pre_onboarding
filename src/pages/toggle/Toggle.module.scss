@@ -1,0 +1,39 @@
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/constants/colors';
+
+.toggleContainer {
+  position: relative;
+  width: 250px;
+  height: 50px;
+  padding: 5px;
+  margin: 0 auto;
+  text-align: center;
+  background: colors.$GRAYE;
+  border-radius: 40px;
+  @include flexbox.flexbox(center center);
+
+  .basic,
+  .detail {
+    z-index: 10;
+    width: 50%;
+    padding: 10px;
+    font-weight: 600;
+    color: colors.$GRAYA;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+  }
+
+  .moveTool {
+    position: absolute;
+    left: 5px;
+    width: 50%;
+    height: 40px;
+    background: colors.$WHITE;
+    border-radius: 40px;
+    transition: all 0.4s ease;
+  }
+
+  .right {
+    transform: translateX(115px);
+  }
+}
