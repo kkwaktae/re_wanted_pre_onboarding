@@ -1,0 +1,16 @@
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/constants/colors';
+
+.sliderContainer {
+  width: 300px;
+  margin: 10% auto;
+
+  .statsViewer {
+    width: 100%;
+    padding: 10% 5%;
+    border: 2px solid colors.$GRAYC;
+    border-radius: 20px;
+
+    @include flexbox.flexbox(center, center);
+  }
+}

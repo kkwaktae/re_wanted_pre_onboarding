@@ -1,0 +1,61 @@
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/constants/colors';
+
+.dropdownContainer {
+  width: 200px;
+  padding: 10px;
+  margin: 100px auto;
+
+  .selector {
+    @include flexbox.flexbox(between, center);
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid colors.$GRAYC;
+    border-radius: 4px;
+
+    .selectedContent {
+      color: #666666;
+      letter-spacing: 0.01em;
+    }
+  }
+
+  .list {
+    display: none;
+    width: 100%;
+    font-size: 12px;
+    cursor: pointer;
+    border: 1px solid colors.$GRAYC;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 30%);
+
+    .searchBar {
+      border-bottom: 1px solid colors.$GRAYC;
+
+      input {
+        width: 100%;
+        padding: 10px;
+        padding-left: 30px;
+        font-size: 12px;
+        color: #666666;
+        letter-spacing: 0.01em;
+      }
+    }
+
+    .options {
+      color: #666666;
+
+      .option {
+        padding: 10px 0;
+        padding-left: 30px;
+        letter-spacing: 0.01em;
+
+        &:hover {
+          background: colors.$GRAYE;
+        }
+      }
+    }
+  }
+}

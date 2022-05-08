@@ -28,14 +28,14 @@
       { "extensions": [".js", ".jsx"] }
     ],
     "react/jsx-indent": "warn",
-    "react/jsx-props-no-spreading": "off",
+    // "react/jsx-props-no-spreading": "off",
     "react/no-array-index-key": "warn",
     "react/require-default-props": "off",
     "react/jsx-wrap-multilines": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
-    "import/prefer-default-export": "off",
+    // "import/prefer-default-export": "off",
     "import/no-unresolved": "off",
     "import/order": "off",
     "import/no-anonymous-default-export": "off",
@@ -51,7 +51,7 @@
     "@typescript-eslint/no-use-before-define": ["error"],
     "no-shadow": ["off"],
     "no-unused-expressions": ["warn"],
-    "no-unused-vars": ["off"], // 사용하지 않는 변수가 있을때 빌드에러가 나던 규칙 해제
+    "no-unused-vars": ["off"],
     "no-console": ["off"], // 콘솔을 쓰면 에러가 나던 규칙 해제
     "no-extra-semi": "off", // 세미콜론 안썼을 때의 에러 규칙 해제
     "react/jsx-props-no-spreading": ["warn"], // props로 받은 것 바로 props로 넘기기 허용

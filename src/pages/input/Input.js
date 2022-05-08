@@ -4,24 +4,22 @@ import { CheckIcon, EyeViewIcon, EyeSlashIcon } from '../../assets/svgs';
 
 function Input() {
   const [isConfirmed, setIsConfirmed] = useState(false);
-  const [reconfirmed, setReconfirmed] = useState(false);
+  const [isReconfirm, setIsReconfirm] = useState(false);
   const [typePassword, setTypePassword] = useState(false);
   const emailRef = useRef();
   const passwordRef = useRef();
 
+  const changeInputStatus = (confirmed, reConfirmed) => {
+    setIsConfirmed(confirmed);
+    setIsReconfirm(reConfirmed);
+  };
+
   const handleInputEmail = (e) => {
     const email = e.target.value;
     const regEx = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$/;
-    if (regEx.test(email)) {
-      setIsConfirmed(true);
-      setReconfirmed(false);
-    } else if (email.trim() === '') {
-      setIsConfirmed(false);
-      setReconfirmed(false);
-    } else {
-      setIsConfirmed(false);
-      setReconfirmed(true);
-    }
+    const confirmed = regEx.test(email);
+    const reconfirmed = confirmed ? false : email.trim().length !== 0;
+    changeInputStatus(confirmed, reconfirmed);
   };
 
   const handleChangeType = () => {
@@ -49,7 +47,7 @@ function Input() {
         />
         <CheckIcon className={styles.checkIcon} fill={isConfirmed ? '#4db6ac' : '#aaaaaa'} />
       </div>
-      <p className={styles.invalidText} style={{ visibility: reconfirmed ? 'visible' : 'hidden' }}>
+      <p className={styles.invalidText} style={{ visibility: isReconfirm ? 'visible' : 'hidden' }}>
         invailed e-mail address
       </p>
 
