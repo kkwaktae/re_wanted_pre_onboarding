@@ -7,10 +7,114 @@
 
   .statsViewer {
     width: 100%;
-    padding: 10% 5%;
+    padding: 30px 15px;
+    margin-bottom: 40px;
     border: 2px solid colors.$GRAYC;
     border-radius: 20px;
+    @include flexbox.flexbox(end, center);
 
-    @include flexbox.flexbox(center, center);
+    .figure {
+      margin-right: 20px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .percent {
+      font-weight: 600;
+      color: colors.$GRAYC;
+    }
+  }
+
+  .slider {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+
+    .point {
+      position: absolute;
+      top: calc(50% - 10px);
+      left: 0;
+      z-index: 12;
+      width: 20px;
+      height: 20px;
+      background: colors.$GRAYD;
+      border-radius: 50%;
+
+      &:nth-of-type(1) {
+        left: calc(0% - 10px);
+      }
+
+      &:nth-of-type(2) {
+        left: calc(25% - 10px);
+      }
+
+      &:nth-of-type(3) {
+        left: calc(50% - 10px);
+      }
+
+      &:nth-of-type(4) {
+        left: calc(75% - 10px);
+      }
+
+      &:nth-of-type(5) {
+        left: calc(100% - 10px);
+      }
+    }
+
+    .currentBar,
+    .basedBar {
+      position: absolute;
+      top: calc(50% - 4px);
+      left: 0;
+      height: 8px;
+    }
+
+    .currentBar {
+      z-index: 11;
+      width: 0%;
+      background: #4db6ac;
+    }
+
+    .basedBar {
+      z-index: 10;
+      width: 100%;
+      background: colors.$GRAYD;
+    }
+  }
+
+  .percentBtn {
+    position: relative;
+    width: 100%;
+    margin: 60px 0;
+
+    .btn {
+      position: absolute;
+      width: 36px;
+      font-size: 12px;
+      line-height: 20px;
+      color: colors.$GRAYA;
+      background-color: colors.$GRAYE;
+      border-radius: 10px;
+
+      &:nth-of-type(1) {
+        left: calc(0% - 18px);
+      }
+
+      &:nth-of-type(2) {
+        left: calc(25% - 18px);
+      }
+
+      &:nth-of-type(3) {
+        left: calc(50% - 18px);
+      }
+
+      &:nth-of-type(4) {
+        left: calc(75% - 18px);
+      }
+
+      &:nth-of-type(5) {
+        left: calc(100% - 18px);
+      }
+    }
   }
 }
